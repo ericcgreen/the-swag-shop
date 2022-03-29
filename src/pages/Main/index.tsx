@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Store } from '../../agents';
+import { Products } from '../../agents';
 import Card from '../../components/Card';
 import { CartItemType } from '../../types/cart-item';
 
@@ -9,7 +9,7 @@ const ShopAll = () => {
   useEffect(() => {
     const getStoreProducts = async () => {
       try {
-        const storeProducts = await Store.getProducts();
+        const storeProducts = await Products.getProducts();
         setProducts(storeProducts);
       } catch (err) {
         console.error('There was an error fetching the products', err);

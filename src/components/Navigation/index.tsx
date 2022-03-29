@@ -1,4 +1,11 @@
-const Navigation = () => {
+import { Dispatch, SetStateAction } from 'react';
+
+interface NavigationProps {
+  toggleCart: boolean;
+  setToggleCart: Dispatch<SetStateAction<boolean>>;
+}
+
+const Navigation = ({ toggleCart, setToggleCart }: NavigationProps) => {
   return (
     <nav className="bg-white shadow">
       <div className="container mx-auto px-6 py-3 md:flex md:items-center md:justify-between">
@@ -57,7 +64,10 @@ const Navigation = () => {
           </div>
 
           <div className="flex justify-center md:block">
-            <a className="relative text-gray-700 hover:text-gray-600" href="#">
+            <button
+              className="relative text-gray-700 hover:text-gray-600"
+              onClick={() => setToggleCart(!toggleCart)}
+            >
               <svg
                 className="h-5 w-5"
                 viewBox="0 0 24 24"
@@ -74,7 +84,7 @@ const Navigation = () => {
               </svg>
 
               <span className="absolute top-0 left-0 rounded-full bg-indigo-500 p-1 text-xs text-white"></span>
-            </a>
+            </button>
           </div>
         </div>
       </div>

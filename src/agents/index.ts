@@ -28,7 +28,7 @@ const requests = {
     axiosInstance.delete(url, options).then(response),
 };
 
-export const Store = {
+export const Products = {
   getProducts: () => requests.get('https://fakestoreapi.com/products'),
 };
 
