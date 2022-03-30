@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/the-swag-shop/static/css/main.23cb8641.css",
+    "main.js": "/the-swag-shop/static/js/main.51da160c.js",
+    "index.html": "/the-swag-shop/index.html",
+    "main.23cb8641.css.map": "/the-swag-shop/static/css/main.23cb8641.css.map",
+    "main.51da160c.js.map": "/the-swag-shop/static/js/main.51da160c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23cb8641.css",
+    "static/js/main.51da160c.js"
+  ]
+}
