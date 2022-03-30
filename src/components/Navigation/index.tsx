@@ -1,11 +1,13 @@
 import { Dispatch, SetStateAction } from 'react';
+import TheSwagShopLogo from '../../assets/the-swag-shop';
 
 interface NavigationProps {
   toggleCart: boolean;
   setToggleCart: Dispatch<SetStateAction<boolean>>;
+  items: number;
 }
 
-const Navigation = ({ toggleCart, setToggleCart }: NavigationProps) => {
+const Navigation = ({ toggleCart, setToggleCart, items }: NavigationProps) => {
   return (
     <nav className="bg-white shadow">
       <div className="container mx-auto px-6 py-3 md:flex md:items-center md:justify-between">
@@ -15,7 +17,7 @@ const Navigation = ({ toggleCart, setToggleCart }: NavigationProps) => {
               className="text-xl font-bold text-gray-800 hover:text-gray-700 md:text-2xl"
               href="#"
             >
-              Brand
+              <TheSwagShopLogo className="h-8 w-56" />
             </a>
           </div>
 
@@ -38,25 +40,25 @@ const Navigation = ({ toggleCart, setToggleCart }: NavigationProps) => {
         <div className="items-center md:flex">
           <div className="flex flex-col md:mx-6 md:flex-row">
             <a
-              className="my-1 text-sm font-medium text-gray-700 hover:text-indigo-500 md:mx-4 md:my-0"
+              className="my-1 text-sm font-medium text-gray-700 hover:underline md:mx-4 md:my-0"
               href="#"
             >
               Home
             </a>
             <a
-              className="my-1 text-sm font-medium text-gray-700 hover:text-indigo-500 md:mx-4 md:my-0"
+              className="my-1 text-sm font-medium text-gray-700 hover:underline md:mx-4 md:my-0"
               href="#"
             >
               Shop
             </a>
             <a
-              className="my-1 text-sm font-medium text-gray-700 hover:text-indigo-500 md:mx-4 md:my-0"
+              className="my-1 text-sm font-medium text-gray-700 hover:underline md:mx-4 md:my-0"
               href="#"
             >
               Contact
             </a>
             <a
-              className="my-1 text-sm font-medium text-gray-700 hover:text-indigo-500 md:mx-4 md:my-0"
+              className="my-1 text-sm font-medium text-gray-700 hover:underline md:mx-4 md:my-0"
               href="#"
             >
               About
@@ -65,7 +67,7 @@ const Navigation = ({ toggleCart, setToggleCart }: NavigationProps) => {
 
           <div className="flex justify-center md:block">
             <button
-              className="relative text-gray-700 hover:text-gray-600"
+              className="relative flex items-center justify-center text-gray-700 hover:text-gray-500"
               onClick={() => setToggleCart(!toggleCart)}
             >
               <svg
@@ -83,7 +85,9 @@ const Navigation = ({ toggleCart, setToggleCart }: NavigationProps) => {
                 />
               </svg>
 
-              <span className="absolute top-0 left-0 rounded-full bg-indigo-500 p-1 text-xs text-white"></span>
+              <span className="absolute -top-2 left-4 h-5 min-w-[20px] rounded-full bg-black p-0.5 text-xs text-white">
+                {items}
+              </span>
             </button>
           </div>
         </div>

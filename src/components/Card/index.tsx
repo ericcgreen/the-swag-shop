@@ -1,19 +1,37 @@
+import { Dispatch, SetStateAction } from 'react';
 import { CartItemType } from '../../types/cart-item';
 
 interface CardProps {
-  product: CartItemType;
+  item: CartItemType;
+  toggleCart: boolean;
+  setToggleCart: Dispatch<SetStateAction<boolean>>;
+  handleAddToCart: (clickedItem: CartItemType) => void;
 }
 
-const Card = ({ product }: CardProps) => {
+const Card = ({
+  item,
+  handleAddToCart,
+  toggleCart,
+  setToggleCart,
+}: CardProps) => {
   const { category, description, id, image, price, rating, title, amount } =
-    product;
+    item;
+
+  const handleClick = () => {
+    handleAddToCart(item);
+    setToggleCart(!toggleCart);
+  };
   return (
     <article className="mx-auto w-full max-w-sm cursor-pointer overflow-hidden rounded-md border border-gray-100 shadow">
       <div
         className="relative mb-3 flex h-[404px] w-full items-end justify-end bg-cover"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <button className="absolute right-3 bottom-3 rounded-full bg-blue-600 p-2 text-white hover:bg-blue-500 focus:bg-blue-500 focus:outline-none">
+        <button
+          type="button"
+          onClick={handleClick}
+          className="absolute right-3 bottom-3 rounded-full bg-black p-2 text-white hover:bg-gray-700 focus:bg-gray-700 focus:outline-none"
+        >
           <svg
             className="h-5 w-5"
             fill="none"
@@ -27,10 +45,10 @@ const Card = ({ product }: CardProps) => {
           </svg>
         </button>
       </div>
-      <div className="mb-3 h-11 px-1">
+      <div className="mb-3 h-11 px-2">
         <h3 className="text-sm text-gray-700">{title}</h3>
       </div>
-      <p className="h-10 px-1">
+      <p className="h-10 px-2">
         <span className="mt-2 text-sm text-gray-500">${price}</span>
       </p>
     </article>
